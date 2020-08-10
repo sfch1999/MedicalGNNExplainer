@@ -25,15 +25,15 @@ for i in range(len(y_pred)):
 # with open('preds.pickle', 'wb') as handle:
 #     pickle.dump(np.expand_dims(y_pred,axis=0), handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-age = db["AGE"].to_numpy()
+age = db["PTGENDER"].to_numpy()
 adj = np.zeros((age.shape[0], age.shape[0]))
 print(adj[0].shape)
 
 for i in range(age.shape[0]):
     for j in range(age.shape[0]):
         if i != j:
-            if abs(age[i] - age[j]) <= 2:
+            if age[i] == age[j]:
                 adj[i, j] = 1
 
-with open('age_adj.pickle', 'wb') as handle:
+with open('ptg_adj.pickle', 'wb') as handle:
     pickle.dump(adj, handle, protocol=pickle.HIGHEST_PROTOCOL)
