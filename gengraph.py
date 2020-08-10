@@ -301,4 +301,4 @@ G, labels, _ =  gen_syn1(
 # print(list(G.nodes)[-1])
 # print(G.nodes[699]["feat"].shape)
 data = preprocess_input_graph(G, labels)
-print(data["feat"])
+print(data["labels"].shape)
