@@ -18,9 +18,15 @@ for i in range(len(y_pred)):
 
 features = db[["RID", "PTID"]]
 
+inp = input().split()
+feats_to_add = []
+for feat in inp:
+    feats_to_add.append("\'" + feat + "\'")
 
+print(feats_to_add)
+
+with open('feats.pickle', 'wb') as handle:
+    pickle.dump(feats_to_add, handle, protocol=pickle.HIGHEST_PROTOCOL)
 with open('feats.pickle', 'rb') as handle:
     feats = pickle.load(handle)
-
-print(feats)
 
