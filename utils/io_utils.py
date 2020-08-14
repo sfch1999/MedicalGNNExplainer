@@ -101,6 +101,7 @@ def save_checkpoint(model, optimizer, args, num_epochs=-1, isbest=False, cg_dict
         },
         filename,
     )
+    return filename
 
 
 def load_ckpt(args, isbest=False):
